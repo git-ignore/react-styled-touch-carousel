@@ -6,6 +6,10 @@
   "author": "S.Belov<bsemyon@gmail.com>",
   "license": "MIT",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/git-ignore/react-styled-touch-carousel"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development",
