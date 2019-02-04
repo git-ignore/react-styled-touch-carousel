@@ -1,0 +1,13 @@
+# Mac files
+.DS_Store
+
+# Yarn
+yarn-error.log
+
+# JetBrains IDEs
+.idea
+
+# build
+dist
+
+node_modules
