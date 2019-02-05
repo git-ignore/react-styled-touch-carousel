@@ -1,11 +1,17 @@
 {
   "name": "react-styled-touch-carousel",
   "version": "0.0.4",
-  "description": "React mobile-only carousel built with styled-components",
+  "description": "Dead simple react carousel built with styled-components",
   "main": "index.js",
   "author": "S.Belov<bsemyon@gmail.com>",
   "license": "MIT",
   "private": false,
+  "keywords": [
+    "styled-components",
+    "carousel",
+    "react-carousel",
+    "styled-carousel"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/git-ignore/react-styled-touch-carousel"
