@@ -6,12 +6,13 @@ import Wrapper from './wrapper';
 import Item from './item';
 import Dots from './dots';
 
+const DEFAULT_AUTOPLAY_INTERVAL = 3000;
+
 class Carousel extends PureComponent {
   static propTypes = {
-    autoplay: PropTypes.bool,
+    autoplay: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
     children: PropTypes.node.isRequired,
     dots: PropTypes.bool,
-    interval: PropTypes.number,
     Dot: PropTypes.any, // https://github.com/facebook/prop-types/issues/200
     DotsWrapper: PropTypes.any, // https://github.com/facebook/prop-types/issues/200
   };
@@ -19,7 +20,6 @@ class Carousel extends PureComponent {
   static defaultProps = {
     autoplay: false,
     dots: true,
-    interval: 3000,
   };
 
   state = {
@@ -55,7 +55,12 @@ class Carousel extends PureComponent {
   componentWillUnmount = () => this.interval && clearInterval(this.interval);
 
   initAutoPlay = () => {
-    this.interval = setInterval(this.nextSlide, this.props.interval);
+    const { autoplay } = this.props;
+
+    this.interval = setInterval(
+      this.nextSlide,
+      typeof autoplay === 'number' ? autoplay : DEFAULT_AUTOPLAY_INTERVAL
+    );
   };
 
   getOrder = itemIndex =>

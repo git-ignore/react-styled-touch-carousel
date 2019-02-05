@@ -1,3 +1,34 @@
 # react-styled-touch-carousel
 
-this is a WIP react carousel built with styled-components
+It is an often case that you need to display some items collection as a grid on large screens
+and as a carousel on small screens. So you want to have mobile-first(only?)-designed carousel to achieve that.
+
+**react-styled-touch-carousel** - is a dead simple module without redundant dependencies for that cases.
+It is built with _styled-components_ and using the _flexbox order_ css-property to control the position of the items. So there is no shuffling the DOM elements around by javascript.
+
+### Usage
+
+install:
+`yarn add react-styled-touch-carousel`
+
+use:
+
+```jsx
+import Carousel from 'yarn add react-styled-touch-carousel';
+
+<Carousel interval={5000} autoplay>
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+  <div>Item 4</div>
+</Carousel>;
+```
+
+### API
+
+| Prop name   | Type         | Default | Description                                                                 |
+| ----------- | ------------ | ------- | --------------------------------------------------------------------------- |
+| autoplay    | bool, number | false   | Used to make carousel auto play for every given time interval.              |
+| dots        | bool         | true    | Show navigation dots                                                        |
+| Dot         | node         | --      | Customized nav dot (Active slide Dot will get `isCurrent` as Boolean prop.) |
+| DotsWrapper | node         | --      | Customized wrapper for your dots to change its view)                        |
