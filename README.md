@@ -10,9 +10,9 @@ It is built with [styled-components](https://www.styled-components.com/) and usi
 
 ####install:
 
-`yarn add react-styled-touch-carousel` 
+`yarn add react-styled-touch-carousel`
 
-or  
+or
 
 `npm i react-styled-touch-carousel --save`
 
@@ -31,15 +31,14 @@ import Carousel from 'react-styled-touch-carousel';
 
 ### API
 
-| Prop name   | Type         | Default | Description                                                                 |
-| ----------- | ------------ | ------- | --------------------------------------------------------------------------- |
-| autoplay    | bool, number | false   | Used to make carousel auto play for every given time interval.              |
-| dots        | bool         | true    | Show navigation dots                                                        |
-| Dot         | node         | --      | Customized nav dot (Active slide Dot will get `isCurrent` as Boolean prop.) |
-| DotsWrapper | node         | --      | Customized wrapper for your dots to change its view)                        |
+| Prop name   | Type         | Default | Description                                                                          |
+| ----------- | ------------ | ------- | ------------------------------------------------------------------------------------ |
+| autoplay    | bool, number | false   | Used to make carousel auto play for every given time interval.                       |
+| dots        | bool         | true    | Show navigation dots                                                                 |
+| Dot         | node         | --      | Customized nav dot which will get `isCurrent` as bool prop when its slide is visible |
+| DotsWrapper | node         | --      | Customized dots wrapper                                                              |
 
-
-----------
+---
 
 ## Roadmap
 
