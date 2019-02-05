@@ -8,14 +8,18 @@ import Dots from './dots';
 
 class Carousel extends PureComponent {
   static propTypes = {
+    autoplay: PropTypes.bool,
     children: PropTypes.node.isRequired,
     dots: PropTypes.bool,
+    interval: PropTypes.number,
     Dot: PropTypes.any, // https://github.com/facebook/prop-types/issues/200
     DotsWrapper: PropTypes.any, // https://github.com/facebook/prop-types/issues/200
   };
 
   static defaultProps = {
+    autoplay: false,
     dots: true,
+    interval: 3000,
   };
 
   state = {
@@ -46,20 +50,30 @@ class Carousel extends PureComponent {
     return this.itemsCount > 1 && this.props.dots;
   }
 
+  componentDidMount = () => this.props.autoplay && this.initAutoPlay();
+
+  componentWillUnmount = () => this.interval && clearInterval(this.interval);
+
+  initAutoPlay = () => {
+    this.interval = setInterval(this.nextSlide, this.props.interval);
+  };
+
   getOrder = itemIndex =>
     (this.itemsCount + 1 - this.state.position + itemIndex) % this.itemsCount;
 
-  nextSlide = () => {
-    const { position } = this.state;
-
-    this.doSliding('next', position === this.itemsCount - 1 ? 0 : position + 1);
-  };
+  nextSlide = () =>
+    this.doSliding(
+      'next',
+      this.state.position === this.itemsCount - 1 ? 0 : this.state.position + 1
+    );
 
   prevSlide = () => {
-    const { position } = this.state;
     const itemsCount = this.props.children.length;
 
-    this.doSliding('prev', position === 0 ? itemsCount - 1 : position - 1);
+    this.doSliding(
+      'prev',
+      this.state.position === 0 ? itemsCount - 1 : thist.state.position - 1
+    );
   };
 
   doSliding = (direction, position) =>
