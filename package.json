@@ -1,6 +1,6 @@
 {
   "name": "react-styled-touch-carousel",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Dead simple react carousel built with styled-components",
   "main": "dist/index.js",
   "author": "S.Belov<bsemyon@gmail.com>",
