@@ -37,6 +37,8 @@ import Carousel from 'react-styled-touch-carousel';
 | dots        | bool         | true    | Show navigation dots                                                                 |
 | Dot         | node         | --      | Customized nav dot which will get `isCurrent` as bool prop when its slide is visible |
 | DotsWrapper | node         | --      | Customized dots wrapper                                                              |
+| afterSlide  | func         | --      | Some callback that will be called with `direction` argument after sliding is ended   |
+| beforeSlide | func         | --      | Some callback that will be called with `direction` argument before sliding           |
 
 ---
 
@@ -44,12 +46,8 @@ import Carousel from 'react-styled-touch-carousel';
 
 - [x] autoplay
 
-- [ ] itemsToShow property
-
-- [ ] afterSlide and beforeSlide callbacks
+- [x] afterSlide and beforeSlide callbacks
 
 - [ ] add arrows
-
-- [ ] responsive property
 
 ...

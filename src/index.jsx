@@ -7,7 +7,9 @@ const DEFAULT_AUTOPLAY_INTERVAL = 3000;
 
 class Carousel extends PureComponent {
   static propTypes = {
+    afterSlide: PropTypes.func,
     autoplay: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
+    beforeSlide: PropTypes.func,
     children: PropTypes.node.isRequired,
     dots: PropTypes.bool,
     Dot: PropTypes.any, // https://github.com/facebook/prop-types/issues/200
@@ -87,20 +89,28 @@ class Carousel extends PureComponent {
     );
   };
 
-  doSliding = (direction, position) =>
-    this.setState(
-      {
-        isSliding: true,
-        position,
-        direction,
-      },
-      () =>
-        setTimeout(() => {
-          this.setState({
-            isSliding: false,
-          });
-        }, 20)
-    );
+  doSliding = (direction, position) => {
+    const { afterSlide, beforeSlide } = this.props;
+
+    if (beforeSlide) {
+      beforeSlide(direction);
+    }
+
+    this.setState({
+      isSliding: true,
+      position,
+      direction,
+    });
+
+    setTimeout(() => {
+      this.setState(
+        {
+          isSliding: false,
+        },
+        () => afterSlide && afterSlide(direction)
+      );
+    }, 20);
+  };
 
   render() {
     const { Dot, DotsWrapper } = this.props;
