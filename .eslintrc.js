@@ -19,6 +19,7 @@ module.exports = {
     'react/jsx-wrap-multilines': ['error', { prop: false }],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/no-access-state-in-setstate': ['off'],
+    'no-void': ['off'],
   },
   parserOptions: {
     ecmaFeatures: {

@@ -1,10 +1,7 @@
 import React, { PureComponent } from 'react';
 import Swipeable from 'react-swipeable';
 import PropTypes from 'prop-types';
-import Container from './container';
-import Wrapper from './wrapper';
-import Item from './item';
-import Dots from './dots';
+import { Wrapper, Container, Item, Dots } from './components';
 
 const DEFAULT_AUTOPLAY_INTERVAL = 3000;
 
@@ -41,8 +38,17 @@ class Carousel extends PureComponent {
   }
 
   get swipeableProps() {
+    const props = {
+      trackMouse: true,
+      preventDefaultTouchmoveEvent: true,
+    };
+
     return this.itemsCount > 1
-      ? { onSwipedLeft: this.nextSlide, onSwipedRight: this.prevSlide }
+      ? {
+          ...props,
+          onSwipedLeft: this.nextSlide,
+          onSwipedRight: this.prevSlide,
+        }
       : void 0;
   }
 
@@ -77,7 +83,7 @@ class Carousel extends PureComponent {
 
     this.doSliding(
       'prev',
-      this.state.position === 0 ? itemsCount - 1 : thist.state.position - 1
+      this.state.position === 0 ? itemsCount - 1 : this.state.position - 1
     );
   };
 
