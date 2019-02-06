@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
-
-// TODO: move to separate styles constants or helpers file
-export const BASE_TRANSITION = '1s ease';
+import PropTypes from 'prop-types';
+import { BASE_TRANSITION } from '../helpers';
 
 const baseTranslation = '-80% - 20px';
 
@@ -21,10 +20,22 @@ const withTransformStyles = ({ isSliding, direction, itemsCount }) => {
   return css`translateX(0)`;
 };
 
-export default styled.div`
+const Container = styled.div`
   display: flex;
   margin: 0 0 20px 20px;
   transition: ${({ isSliding }) =>
     isSliding ? 'none' : `transform ${BASE_TRANSITION}`};
   transform: ${withTransformStyles};
 `;
+
+Container.propTypes = {
+  isSliding: PropTypes.bool,
+  direction: PropTypes.oneOf(['prev', 'next']).isRequired,
+  itemsCount: PropTypes.number.isRequired,
+};
+
+Container.defaultProps = {
+  isSliding: false,
+};
+
+export default Container;
