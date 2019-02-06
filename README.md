@@ -6,9 +6,9 @@ and as a carousel on small screens. So you want to have mobile-first(only?)-desi
 **react-styled-touch-carousel** - is a dead simple module without redundant dependencies for that cases.
 It is built with [styled-components](https://www.styled-components.com/) and using the _flexbox order_ css-property to control the position of the items. So there is no shuffling the DOM elements around by javascript.
 
-### Usage
+## Usage
 
-####install:
+### install:
 
 `yarn add react-styled-touch-carousel`
 
@@ -16,7 +16,7 @@ or
 
 `npm i react-styled-touch-carousel --save`
 
-####use:
+### use:
 
 ```jsx
 import Carousel from 'react-styled-touch-carousel';
@@ -29,7 +29,7 @@ import Carousel from 'react-styled-touch-carousel';
 </Carousel>;
 ```
 
-### API
+## API
 
 | Prop name   | Type         | Default | Description                                                                          |
 | ----------- | ------------ | ------- | ------------------------------------------------------------------------------------ |
